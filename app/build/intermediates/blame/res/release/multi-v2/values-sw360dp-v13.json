@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "C:\\Users\\roser\\OneDrive\\Documentos\\controliot\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-sw360dp-v13\\values-sw360dp-v13.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\roser\\.gradle\\caches\\transforms-2\\files-2.1\\a5f3036e6e8f20a0ba015da265873d11\\res\\values-sw360dp-v13\\values-sw360dp-v13.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "55,125,186,247,302,356,414",
+                        "endColumns": "69,60,60,54,53,57,56",
+                        "endOffsets": "120,181,242,297,351,409,466"
+                    }
+                }
+            ]
+        }
+    ]
+}

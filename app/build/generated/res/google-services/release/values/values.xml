@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">272901274871-vf5afvphka2olprlg2upnmaqvedhkh9q.apps.googleusercontent.com</string>
+    <string name="firebase_database_url" translatable="false">https://control-iot-vf.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">272901274871</string>
+    <string name="google_api_key" translatable="false">AIzaSyDJqJrxxtrswlDYvqqIH-qfLgj32XMJaYQ</string>
+    <string name="google_app_id" translatable="false">1:272901274871:android:b75a72b49be6c1b1</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDJqJrxxtrswlDYvqqIH-qfLgj32XMJaYQ</string>
+    <string name="google_storage_bucket" translatable="false">control-iot-vf.appspot.com</string>
+    <string name="project_id" translatable="false">control-iot-vf</string>
+</resources>

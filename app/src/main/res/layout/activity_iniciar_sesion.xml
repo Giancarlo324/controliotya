@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="18dp"
+    android:paddingRight="18dp"
+    tools:context=".IniciarSesion">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarSignin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:drawablePadding="12dp"
+        android:fontFamily="sans-serif"
+        android:padding="8dp"
+        android:text="Iniciar Sesión"
+        android:textAlignment="textStart"
+        android:textColor="#fff"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/ingEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHint="#fff">
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/txt_correo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:background="@android:color/transparent"
+            android:drawableLeft="@drawable/ic_person_white_24dp"
+            android:drawablePadding="12dp"
+            android:ems="10"
+            android:hint="Ingresar Correo"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
+            android:padding="8dp"
+            android:textColorHint="#fff" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#f9d7db" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/ingPass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_lock_white_24dp"
+        android:textColorHint="#fff"
+        android:hint="Ingresar contraseña"
+        app:passwordToggleEnabled="true">
+
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/txt_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@android:color/transparent"
+            android:drawableStart="@drawable/ic_lock_white_24dp"
+            android:drawablePadding="12dp"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:padding="8dp"
+            android:textColor="#fff"
+            android:textColorHint="#fff" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#f9d7db" />
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/btn_signin"
+        style="@style/Base.TextAppearance.AppCompat.Body1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/background_signup"
+        android:clickable="true"
+        android:padding="16dp"
+        android:text="Iniciar sesión"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="10dp"
+        android:weightSum="3.0">
+
+        <TextView
+            android:id="@+id/btnRegister"
+            android:layout_width="0dp"
+            android:layout_height="47dp"
+            android:layout_weight="1.0"
+            android:paddingTop="5dp"
+            android:text="Registrarme"
+            android:textAlignment="center"
+            android:textColor="#fff" />
+
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/sign_in_button"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0" />
+
+        <TextView
+            android:id="@+id/btnRecoveryPass"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:paddingTop="5dp"
+            android:text="Olvidé la contraseña"
+            android:textAlignment="center"
+            android:textColor="#fff"
+            android:visibility="invisible"/>
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,4 @@
+#Sun Jun 23 15:04:18 COT 2019
+base.0=C\:\\Users\\roser\\OneDrive\\Documentos\\controliot\\app\\build\\intermediates\\transforms\\dexMerger\\release\\10
+path.0=classes.dex
+renamed.0=classes.dex

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "272901274871",
+    "firebase_url": "https://control-iot-vf.firebaseio.com",
+    "project_id": "control-iot-vf",
+    "storage_bucket": "control-iot-vf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:272901274871:android:b75a72b49be6c1b1",
+        "android_client_info": {
+          "package_name": "com.softmicro.IO4"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "272901274871-thu734ckakkb4h2gilpdg712v713ojlt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.softmicro.IO4",
+            "certificate_hash": "123dfad9098cd1f5148642b9a236079181ded4a8"
+          }
+        },
+        {
+          "client_id": "272901274871-vf5afvphka2olprlg2upnmaqvedhkh9q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJqJrxxtrswlDYvqqIH-qfLgj32XMJaYQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "272901274871-vf5afvphka2olprlg2upnmaqvedhkh9q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
