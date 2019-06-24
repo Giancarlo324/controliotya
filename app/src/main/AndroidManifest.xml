@@ -13,12 +13,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning">
+
+        <meta-data
+            android:name="firebase_messaging_auto_init_enabled"
+            android:value="false" />
+        <meta-data
+            android:name="firebase_analytics_collection_enabled"
+            android:value="false" />
+
         <activity
             android:name=".MainActivity">
         </activity>
         <activity
             android:name=".IniciarSesion"
-            android:parentActivityName="com.softmicro.IO4.MainActivity"
+            android:parentActivityName=".MainActivity"
             android:windowSoftInputMode="stateHidden|adjustResize">
         </activity>
         <activity
@@ -33,7 +41,7 @@
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
             android:name=".RegistrarUsuario"
-            android:parentActivityName="com.softmicro.IO4.MainActivity"
+            android:parentActivityName=".MainActivity"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
             android:name=".InicioSesionExitoso"

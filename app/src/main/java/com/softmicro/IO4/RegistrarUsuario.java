@@ -1,20 +1,17 @@
 package com.softmicro.IO4;
 
-import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,10 +36,12 @@ public class RegistrarUsuario extends AppCompatActivity implements
     private static final String TAG = " ";
     EditText mCorreo;
     Button  mRegistrar;
+    //
+    String emailPass;
     //Firebase
     private FirebaseAuth mAuth;
     //Alert
-    AlertDialog dialog;
+    android.app.AlertDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,8 +70,6 @@ public class RegistrarUsuario extends AppCompatActivity implements
 
         //Escuchadores
         findViewById(R.id.btn_register).setOnClickListener(this);
-        //findViewById(R.id.btn_iniciosesion).setOnClickListener(this);
-        //findViewById(R.id.lblSignIn).setOnClickListener(this);
     }
 
     private void registerEmailPassword() {
@@ -99,6 +96,7 @@ public class RegistrarUsuario extends AppCompatActivity implements
             Toast.makeText(RegistrarUsuario.this, "Los campos no pueden estar vacíos.",
                     Toast.LENGTH_SHORT).show();
             mRegistrar.setEnabled(true);
+            dialog.dismiss();
             return;
         }
 
@@ -108,11 +106,12 @@ public class RegistrarUsuario extends AppCompatActivity implements
             Toast.makeText(RegistrarUsuario.this, "Ingrese un correo válido.",
                     Toast.LENGTH_SHORT).show();
             mRegistrar.setEnabled(true);
+            dialog.dismiss();
             return;
         }
+        emailPass = email;
 
         //Si llega hasta aquí es porque ingresó todo correctamente.
-
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(RegistrarUsuario.this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -130,8 +129,7 @@ public class RegistrarUsuario extends AppCompatActivity implements
                                         Toast.makeText(RegistrarUsuario.this, "Revisa tu correo para confirmar tu cuenta.",
                                                 Toast.LENGTH_SHORT).show();
                                         return;
-                                    }
-                                    else {
+                                    } else {
                                         Toast.makeText(RegistrarUsuario.this, "Error al registrar.",
                                                 Toast.LENGTH_SHORT).show();
                                         return;
@@ -139,9 +137,8 @@ public class RegistrarUsuario extends AppCompatActivity implements
                                 }
                             });
                             return;
-                        }
-                        else
-                            mAuth.signOut();
+                        } else {
+
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "Error al crear.", task.getException());
                             AlertDialog.Builder mensaje = new AlertDialog.Builder(RegistrarUsuario.this);
@@ -160,10 +157,13 @@ public class RegistrarUsuario extends AppCompatActivity implements
                                 }
                             });
                             mensaje.show();
+                            mAuth.signOut();
                             updateUI(null);
                             return;
-                            }
+                        }
+                    }
                 });
+        dialog.dismiss();
         mRegistrar.setEnabled(true);
     }
     //Función para detectar al usuario actual.

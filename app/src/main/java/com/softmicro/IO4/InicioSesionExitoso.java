@@ -1,15 +1,17 @@
 package com.softmicro.IO4;
 
-import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,11 +22,14 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
+import com.google.firebase.messaging.FirebaseMessaging;
 
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.security.Provider;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 import dmax.dialog.SpotsDialog;
 
@@ -34,12 +39,21 @@ public class InicioSesionExitoso extends AppCompatActivity implements
     private GoogleSignInClient clienteGoogle;
     FirebaseAuth mAuth;
     private GoogleSignInClient mGoogleSignInClient;
-    //Alert
-    AlertDialog dialog;
     //
+    String token, token2;
+    //Alert
+    android.app.AlertDialog dialog;
+    //
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
+    //
+    ListView listaToken;
+    //
+    private static final String TAG = "";
     TextView mDatos;
-    private Bitmap loadedImage;
     private String correo, uid, DisplayName, phone, photo;
+    //Datos
+    private DatabaseReference mFirebaseDatabase;
 
 
     @Override
@@ -57,6 +71,28 @@ public class InicioSesionExitoso extends AppCompatActivity implements
 
         //
         mDatos = (TextView)findViewById(R.id.txt_datos);
+        listaToken = (ListView)findViewById(R.id.list_token);
+        //token
+        FirebaseInstanceId.getInstance().getInstanceId()
+                .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<InstanceIdResult> task) {
+                        if (!task.isSuccessful()) {
+                            Log.w(TAG, "getInstanceId failed", task.getException());
+                            return;
+                        }
+
+                        // Get new Instance ID token
+                        token = task.getResult().getToken();
+                        registrarToken(token);
+
+                        // Log and toast
+                        Toast.makeText(InicioSesionExitoso.this, token,
+                                Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+        //
 
         // Configuración de Google Sign In
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -66,26 +102,40 @@ public class InicioSesionExitoso extends AppCompatActivity implements
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
-
-        //Lo que va aquí está provicional.
         correo = mAuth.getCurrentUser().getEmail();
         uid = mAuth.getCurrentUser().getUid();
-        if(!mAuth.getCurrentUser().getDisplayName().isEmpty())
-            DisplayName = mAuth.getCurrentUser().getDisplayName();
-        else DisplayName = "Vacío";
-        if(!mAuth.getCurrentUser().getPhoneNumber().isEmpty())
-            phone = mAuth.getCurrentUser().getPhoneNumber();
-        else phone = "Vacío";
-        if(mAuth.getCurrentUser().getPhotoUrl() != null) {
-            photo = mAuth.getCurrentUser().getPhotoUrl().toString();
-        }
-        else photo = "Vacío";
-        mDatos.setText("Si los datos aparecen con vacío, es porque no ingresó con Google o no poseé esa información, estas son verificaciones temporales...\n\nCorreo:" + correo + "\n UID: " + uid + "\n Display Name: " + DisplayName + "\n Phone: " + phone + "\n Photo: " + photo);
+
+        mDatos.setText("Correo:" + correo + "\n UID: " + uid);
 
         findViewById(R.id.sign_out_button).setOnClickListener(this);
         findViewById(R.id.sign_out_button).setEnabled(true);
     }
 
+    private void registrarToken(String token) {
+
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference("Usuarios");
+
+        databaseReference.child(uid).child("Email").setValue(correo);
+        databaseReference.child(uid).child("Token").setValue(token);
+
+        final ArrayList<String> tokenlist = new ArrayList<>();
+        tokenlist.add(token);
+
+        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, tokenlist);
+
+        listaToken.setAdapter(arrayAdapter);
+
+        listaToken.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(InicioSesionExitoso.this, "Notificacion se envía a: ." + tokenlist.get(position),
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    //Base
     private void signOut() {
         dialog.show();
         // Firebase sign out
@@ -100,6 +150,7 @@ public class InicioSesionExitoso extends AppCompatActivity implements
                         dialog.dismiss();
                     }
                 });
+        dialog.dismiss();
     }
 
     @Override

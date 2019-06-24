@@ -9,7 +9,7 @@
     android:paddingRight="18dp"
     tools:context=".IniciarSesion">
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarSignin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -27,12 +27,12 @@
         android:textSize="18sp"
         android:textStyle="bold" />
 
-    <android.support.design.widget.TextInputLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/ingEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColorHint="#fff">
-        <android.support.v7.widget.AppCompatEditText
+        <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/txt_correo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -51,9 +51,9 @@
             android:layout_height="1dp"
             android:background="#f9d7db" />
 
-    </android.support.design.widget.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <android.support.design.widget.TextInputLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/ingPass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -62,7 +62,7 @@
         android:hint="Ingresar contraseña"
         app:passwordToggleEnabled="true">
 
-        <android.support.v7.widget.AppCompatEditText
+        <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/txt_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -80,7 +80,7 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="#f9d7db" />
-    </android.support.design.widget.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/btn_signin"

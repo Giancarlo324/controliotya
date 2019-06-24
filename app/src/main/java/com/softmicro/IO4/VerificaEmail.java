@@ -1,15 +1,14 @@
 package com.softmicro.IO4;
 
-import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import android.text.Spannable;
 import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.widget.Button;
@@ -30,7 +29,7 @@ public class VerificaEmail extends AppCompatActivity implements
     //Firebase
     private FirebaseAuth mAuth;
     //Alert
-    AlertDialog dialog;
+    android.app.AlertDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,9 +93,7 @@ public class VerificaEmail extends AppCompatActivity implements
                 }
             }
         });
-        {
-        }
-
+        dialog.dismiss();
     }
 
     private void resendEmail() {

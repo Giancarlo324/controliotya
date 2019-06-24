@@ -1,11 +1,11 @@
 package com.softmicro.IO4;
 
-import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -17,8 +17,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
-import java.util.Timer;
-import java.util.TimerTask;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -33,7 +31,7 @@ public class RecuperarClave extends AppCompatActivity implements
     TextView txtEmail;
     FirebaseAuth auth;
     //Alert
-    AlertDialog dialog;
+    android.app.AlertDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +72,7 @@ public class RecuperarClave extends AppCompatActivity implements
         {
             Toast.makeText(RecuperarClave.this, "Ingrese un correo válido.",
                     Toast.LENGTH_SHORT).show();
+            dialog.dismiss();
             return;
         }
         //Si llega hasta aquí es porque enviará el correo.
@@ -112,6 +111,7 @@ public class RecuperarClave extends AppCompatActivity implements
                         }
                     }
                 });
+        dialog.dismiss();
     }
 
     private void volverInicio() {

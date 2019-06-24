@@ -2,13 +2,14 @@ package com.softmicro.IO4;
 
 import android.app.AlertDialog;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
-import android.support.design.widget.TextInputLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.textfield.TextInputLayout;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -151,6 +152,7 @@ public class IniciarSesion extends AppCompatActivity implements
         if(TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
             Toast.makeText(IniciarSesion.this, "Los campos no pueden estar vacíos.",
                     Toast.LENGTH_SHORT).show();
+            dialog.dismiss();
             return;
         }
 
@@ -165,6 +167,7 @@ public class IniciarSesion extends AppCompatActivity implements
         {
             Toast.makeText(IniciarSesion.this, "Ingrese un correo válido.",
                     Toast.LENGTH_SHORT).show();
+            dialog.dismiss();
             return;
         }
         //Iniciar sesión si los datos ingresados son correctos.
@@ -195,6 +198,7 @@ public class IniciarSesion extends AppCompatActivity implements
                         }
                     }
                 });
+        dialog.dismiss();
     }
     //Función que retrocede.
     @Override
@@ -220,10 +224,10 @@ public class IniciarSesion extends AppCompatActivity implements
                 startActivity(new Intent(IniciarSesion.this, RegistrarUsuario.class));
                 finish();
                 break;
-           // case R.id.lblSignUp://Botón volver a registrarse
-           //     startActivity(new Intent(IniciarSesion.this, RegistrarUsuario.class));
-           //     finish();
-           //     break;//lblSignUp
+            // case R.id.lblSignUp://Botón volver a registrarse
+            //     startActivity(new Intent(IniciarSesion.this, RegistrarUsuario.class));
+            //     finish();
+            //     break;//lblSignUp
         }
     }
     private void updateUI(FirebaseUser user) {

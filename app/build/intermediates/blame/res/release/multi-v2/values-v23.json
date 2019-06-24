@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\roser\\OneDrive\\Documentos\\controliot\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-v23\\values-v23.xml",
+            "outputFile": "C:\\Users\\roser\\AndroidStudioProjects\\control\\controliotya\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-v23\\values-v23.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\roser\\.gradle\\caches\\transforms-2\\files-2.1\\fc81aaa1838e581679c5676a1797f1fb\\res\\values-v23\\values-v23.xml",
+                    "source": "C:\\Users\\roser\\.gradle\\caches\\transforms-2\\files-2.1\\71dd62449971af5fa2524f7a41958b60\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\roser\\.gradle\\caches\\transforms-2\\files-2.1\\c8e07f359dd994e7dcac89ab65a3e108\\res\\values-v23\\values-v23.xml",
+                    "source": "C:\\Users\\roser\\.gradle\\caches\\transforms-2\\files-2.1\\d1b69571aa0dbc981f3cba4fb37c5040\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,19,32,33,34,35,36",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4",

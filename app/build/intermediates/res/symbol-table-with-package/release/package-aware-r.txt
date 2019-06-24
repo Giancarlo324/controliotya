@@ -1131,6 +1131,7 @@ drawable fui_idp_button_background_phone
 drawable fui_idp_button_background_twitter
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
+drawable ic_google
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_lock_white_24dp
@@ -1317,6 +1318,7 @@ id linearLayout
 id linearLayout2
 id listMode
 id list_item
+id list_token
 id logo
 id main_layout
 id main_tos_and_pp

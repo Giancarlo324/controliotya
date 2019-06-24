@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\roser\\OneDrive\\Documentos\\controliot\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-land\\values-land.xml",
+            "outputFile": "C:\\Users\\roser\\AndroidStudioProjects\\control\\controliotya\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-land\\values-land.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\roser\\.gradle\\caches\\transforms-2\\files-2.1\\c8e07f359dd994e7dcac89ab65a3e108\\res\\values-land\\values-land.xml",
+                    "source": "C:\\Users\\roser\\.gradle\\caches\\transforms-2\\files-2.1\\d1b69571aa0dbc981f3cba4fb37c5040\\res\\values-land\\values-land.xml",
                     "from": {
                         "startLines": "2,3,4",
                         "startColumns": "4,4,4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\roser\\.gradle\\caches\\transforms-2\\files-2.1\\163cb7587cf5a38f7dc36edf4fe33da9\\res\\values-land\\values-land.xml",
+                    "source": "C:\\Users\\roser\\.gradle\\caches\\transforms-2\\files-2.1\\ebbea05c65278b74f5e1ba12db8dd1ee\\res\\values-land\\values-land.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

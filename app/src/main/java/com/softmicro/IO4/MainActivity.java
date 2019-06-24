@@ -1,14 +1,14 @@
 package com.softmicro.IO4;
 
-import android.app.AlertDialog;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,8 +23,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.messaging.FirebaseMessaging;
 
-import dmax.dialog.SpotsDialog;
-
 
 public class MainActivity extends AppCompatActivity implements
         View.OnClickListener{
@@ -37,16 +35,11 @@ public class MainActivity extends AppCompatActivity implements
     EditText mCorreo, mClave;
     Button mRegistrar;
     TextView mRClave, mInicioSesion;
-    //Alert dialog
-    AlertDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        //Alert Dialog
-        //dialog = new SpotsDialog(MainActivity.this);
 
         //Instancia de variables del layout
         mInicioSesion = (TextView) findViewById(R.id.btn_iniciosesion);
@@ -56,7 +49,6 @@ public class MainActivity extends AppCompatActivity implements
         // Escuchador del botón de Google y demás
         findViewById(R.id.btn_iniciosesion).setOnClickListener(this);//Inicio Sesión
         findViewById(R.id.btn_register).setOnClickListener(this);
-        //findViewById(R.id.lbl_recuperarclave).setOnClickListener(this);
         //Instancia usuario
         mAuth = FirebaseAuth.getInstance();
 
@@ -83,6 +75,26 @@ public class MainActivity extends AppCompatActivity implements
                     });
 
         }
+        //
+        /*
+        FirebaseInstanceId.getInstance().getInstanceId()
+                .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<InstanceIdResult> task) {
+                        if (!task.isSuccessful()) {
+                            Log.w(TAG, "getInstanceId failed", task.getException());
+                            return;
+                        }
+
+                        // Get new Instance ID token
+                        String token = task.getResult().getToken();
+
+                        // Log and toast
+                        Log.d(TAG, token);
+                    }
+                });
+                */
+        //
     }
 
     @Override

@@ -1,11 +1,11 @@
 package com.softmicro.IO4;
 
-import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -31,7 +31,7 @@ public class CrearPass extends AppCompatActivity
     //Detefctar al usuario
     private FirebaseAuth mAuth;
     //Alert
-    AlertDialog dialog;
+    android.app.AlertDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +71,7 @@ public class CrearPass extends AppCompatActivity
         if(TextUtils.isEmpty(password) || TextUtils.isEmpty(password2)) {
             Toast.makeText(CrearPass.this, "Los campos no pueden estar vacíos.",
                     Toast.LENGTH_SHORT).show();
+            dialog.dismiss();
             return;
         }
 
@@ -79,6 +80,7 @@ public class CrearPass extends AppCompatActivity
         {
             Toast.makeText(CrearPass.this, "Ingrese una clave segura(Letras y números, 6 caracteres mínimo).",
                     Toast.LENGTH_SHORT).show();
+            dialog.dismiss();
             return;
         }
 
@@ -89,6 +91,7 @@ public class CrearPass extends AppCompatActivity
             System.out.println("Clave2: " + password2);
             Toast.makeText(CrearPass.this, "Las contraseñas no coinciden.",
                     Toast.LENGTH_SHORT).show();
+            dialog.dismiss();
             return;
         }
 
@@ -114,6 +117,7 @@ public class CrearPass extends AppCompatActivity
                 }
             }
         });
+        dialog.dismiss();
     }
 
     //Función para detectar al usuario actual.
